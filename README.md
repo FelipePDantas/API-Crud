@@ -20,6 +20,19 @@ public class UserService {
         return userSave;
     }
 ~~~
-*A injeção de dependência com a anotação @Autowired é um recurso do Spring onde facilita muito reduzindo o acoplamento entre as classes.
-*Já no metódo save , que passamos um User como retorno que é uma class na minha camada <code>Model</code>
-*
+* A injeção de dependência com a anotação <code>@Autowired</code> é um recurso do Spring onde facilita muito reduzindo o acoplamento entre as classes.
+* Já no metódo save , que passamos um **User** como retorno que é uma class na minha camada <code>Model</code> que usamos o metódo da camada <code>UserRepository</code> onde essa camada é responsavel pela persistência de dados , ela possui seus próprios metódos para realizar leitura,criar,atualização e deleção **(CRUD)**.
+* No exemplo acima podemos ver um dos métodos **repository.save();** esse método é reponsável por criar a entidade e persistir os dados .
+
+~~~java 
+ public List<User> findAll() {
+        return repository.findAll();
+    }
+
+    public Optional<User> findByID(Long id) {
+        return repository.findById(id);
+    }
+~~~
+* Nesses dois métodos utilizamos para fazer a letura(busca) por entidades no meu Banco de Dados.
+* No primeiro método buscamos todos os User em uma estrutura List que irá trazer toda entidade no nosso banco pois o <code>repository.findAll</code> retornará todas as entidades que foram persistidas.
+* Já no segundo método a busca é pelo **ID** do **User** uqe é passado como parâmetro , por isso usamos um <code>Optional</code> porque há a possibilidade de informar um **ID** que não existe, se o **ID** existir será exibido o **User** daquele respectivo **ID**.
