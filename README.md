@@ -21,5 +21,5 @@ public class UserService {
     }
 ~~~
 *A injeção de dependência com a anotação @Autowired é um recurso do Spring onde facilita muito reduzindo o acoplamento entre as classes.
-*Já no metódo save , que passamos um User como retorno que é uma class na minha camada <i>Model</i>
+*Já no metódo save , que passamos um User como retorno que é uma class na minha camada <code>Model</code>
 *
