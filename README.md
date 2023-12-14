@@ -5,7 +5,7 @@
 
 <h3>Camada de Service do padrão MVC</h3>
 <p>A camadda de Service é utilizada para conter a regra de negocio, serve também como uma interface entre o Controller e o Model 
-  deixando assim a regra de negocio mais limpa e modular , deixando cada método bem mais legivel e facil de se entender deixando bem nitido o [Single Responsiblity Principle] a (https://en.wikipedia.org/wiki/Single_responsibility_principle)  </p>
+  deixando assim a regra de negocio mais limpa e modular , deixando cada método bem mais legivel e facil de se entender deixando bem nitido o <code>Single Responsiblity Principle</code> </p>
 
 
   ~~~java
