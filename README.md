@@ -84,7 +84,8 @@ public class UserService {
         }
         throw new ResponseStatusException(HttpStatus.NOT_FOUND,"User Not Found");
     }
-* O método <code>patchUser</code> é um dos métodos mais interessan  , pois só atualiza um ou mais atributos 
+* O método <code>patchUser</code> ao contrario do Put que atualiza todos os atributos da entidade o <code>patchUser</code> atualiza somente o atributo especifico que precisa da atualização , por isso é muito importante observar os atributos que irá colocar na sua lógica pois nem todos podem ser atualizado para mantermos uma integridade da entidade.
+* Método muito importante mas pouco utilizado , principalmente por pessoas que estão aprendendo CRUD uma sigla tão importante e tão usada no dia a dia de um programador . Mais importante do que fazer é realmente saber porque está fazendo
 
 
 
