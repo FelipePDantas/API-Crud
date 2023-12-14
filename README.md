@@ -24,6 +24,8 @@ public class UserService {
 * Já no metódo save , que passamos um **User** como retorno que é uma class na minha camada <code>Model</code> que usamos o metódo da camada <code>UserRepository</code> onde essa camada é responsavel pela persistência de dados , ela possui seus próprios metódos para realizar leitura,criar,atualização e deleção **(CRUD)**.
 * No exemplo acima podemos ver um dos métodos **repository.save();** esse método é reponsável por criar a entidade e persistir os dados .
 
+<h4>Métodos de Leitura</h4>
+
 ~~~java 
  public List<User> findAll() {
         return repository.findAll();
