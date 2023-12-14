@@ -24,7 +24,7 @@ public class UserService {
 * Já no metódo save , que passamos um **User** como retorno que é uma class na minha camada <code>Model</code> que usamos o metódo da camada <code>UserRepository</code> onde essa camada é responsavel pela persistência de dados , ela possui seus próprios metódos para realizar leitura,criar,atualização e deleção **(CRUD)**.
 * No exemplo acima podemos ver um dos métodos **repository.save();** esse método é reponsável por criar a entidade e persistir os dados .
 
-<h4>Métodos de Leitura</h4>
+<h4>Métodos de Leitura :</h4>
 
 ~~~java 
  public List<User> findAll() {
@@ -37,4 +37,60 @@ public class UserService {
 ~~~
 * Nesses dois métodos utilizamos para fazer a letura(busca) por entidades no meu Banco de Dados.
 * No primeiro método buscamos todos os User em uma estrutura List que irá trazer toda entidade no nosso banco pois o <code>repository.findAll</code> retornará todas as entidades que foram persistidas.
-* Já no segundo método a busca é pelo **ID** do **User** uqe é passado como parâmetro , por isso usamos um <code>Optional</code> porque há a possibilidade de informar um **ID** que não existe, se o **ID** existir será exibido o **User** daquele respectivo **ID**..
+* Já no segundo método a busca é pelo **ID** do **User** uqe é passado como parâmetro , por isso usamos um <code>Optional</code> porque há a possibilidade de informar um **ID** que não existe, se o **ID** existir será exibido o **User** daquele respectivo **ID**.
+
+<h4>Métodos de Atualização</h4>
+
+~~~java
+  public User putUser(Long id, User userUpdate) {
+
+        Optional<User> userOptional = repository.findById(id);
+
+        if (userOptional.isPresent()) {
+            User updtate = userOptional.get();
+
+            updtate.setName(userUpdate.getName());
+            updtate.setEmail(userUpdate.getEmail());
+            updtate.setContact(userUpdate.getContact());
+
+            User updateUser = repository.save(updtate);
+            return updateUser;
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"User Not Found");
+        }
+    }
+~~~
+* Esse método que precisa usar uma lógica para realizar uma atualização é bem simples, o método já é autoexplicativo PutUser que irei mostrar logo após que é um dos metódos HTTP .
+* Nesse método atualizamos todos os atributos da entidade , sutilmente enxergamos outra estrutura de dados que sé é passada nos parâmetros que é o <code>Map</code> (chave : valor ) o **ID** sendo a chave e **User** sendo o valor que irá ser alterado ao final do metodo.
+
+  ~~~java
+    public User patchUser(Long id, User userDetails) {
+        Optional<User> optionalUser = repository.findById(id);
+
+        if (optionalUser.isPresent()) {
+            User updateEspecific = optionalUser.get();
+
+            if (userDetails.getName() != null) {
+                updateEspecific.setName(userDetails.getName());
+            }
+            if (userDetails.getEmail() != null) {
+                updateEspecific.setEmail(userDetails.getEmail());
+            }
+            if (userDetails.getContact() != null) {
+                updateEspecific.setContact(userDetails.getContact());
+            }
+            updateEspecific = repository.save(updateEspecific);
+            return updateEspecific;
+        }
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND,"User Not Found");
+    }
+* O método <code>patchUser</code> é um dos métodos mais interessan  , pois só atualiza um ou mais atributos 
+
+
+
+
+
+
+
+
+~~~
