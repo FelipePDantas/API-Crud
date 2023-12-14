@@ -35,4 +35,4 @@ public class UserService {
 ~~~
 * Nesses dois métodos utilizamos para fazer a letura(busca) por entidades no meu Banco de Dados.
 * No primeiro método buscamos todos os User em uma estrutura List que irá trazer toda entidade no nosso banco pois o <code>repository.findAll</code> retornará todas as entidades que foram persistidas.
-* Já no segundo método a busca é pelo **ID** do **User** uqe é passado como parâmetro , por isso usamos um <code>Optional</code> porque há a possibilidade de informar um **ID** que não existe, se o **ID** existir será exibido o **User** daquele respectivo **ID**.
+* Já no segundo método a busca é pelo **ID** do **User** uqe é passado como parâmetro , por isso usamos um <code>Optional</code> porque há a possibilidade de informar um **ID** que não existe, se o **ID** existir será exibido o **User** daquele respectivo **ID**..
