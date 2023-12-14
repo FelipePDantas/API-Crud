@@ -1,7 +1,6 @@
 <h1>Crud Básico</h1>
 
 > Neste projeto prático tento aprofundar nós reais conceitos de um CRUD , em quesito dos métodos de requisição HTTP mais usados no dia a dia,
-
 > abordando o GET,POST,PUT,PATCH e DELETE bem simples e prático em uma API em <https://spring.io/guides/gs/spring-boot/> com Java .
 
 <h3>Camada de Service do padrão MVC</h3>
