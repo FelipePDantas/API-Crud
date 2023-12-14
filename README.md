@@ -86,6 +86,7 @@ public class UserService {
     }
 * O método <code>patchUser</code> ao contrario do Put que atualiza todos os atributos da entidade o <code>patchUser</code> atualiza somente o atributo especifico que precisa da atualização , por isso é muito importante observar os atributos que irá colocar na sua lógica pois nem todos podem ser atualizado para mantermos uma integridade da entidade.
 * Método muito importante mas pouco utilizado , principalmente por pessoas que estão aprendendo CRUD uma sigla tão importante e tão usada no dia a dia de um programador . Mais importante do que fazer é realmente saber porque está fazendo
+* Ao final dos dois métodos se o usuário não estiver cadastrado irá retornar um <code>ResponseStatusException</code> passando o **NOT_FOUND** que no **Controller** irá retornar o status 404 que é recorrente por não encontrar o dado que foi passado .
 
 
 
